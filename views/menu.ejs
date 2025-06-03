@@ -1,0 +1,67 @@
+<nav class="col-md-3 col-lg-2 d-none d-md-block bg-light min-vh-100 p-0">
+    <ul class="nav flex-column">
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/index">
+                <i class="bi bi-speedometer2 me-2 fs-5"></i>แดชบอร์ด
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/room">
+                <i class="bi bi-door-open-fill me-2 fs-5"></i>ห้องพัก
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/repair">
+                <i class="bi bi-tools me-2 fs-5"></i>แจ้งซ่อม
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/meter">
+                <i class="bi bi-pencil-square me-2 fs-5"></i>จดมิเตอร์
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/bill">
+                <i class="bi bi-receipt-cutoff me-2 fs-5"></i>ออกบิล
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/payment">
+                <i class="bi bi-exclamation-circle-fill me-2 fs-5"></i>ค้างชำระ
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/report">
+                <i class="bi bi-graph-up-arrow me-2 fs-5"></i>รายงาน
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg">
+            <a class="nav-link" href="/user">
+                <i class="bi bi-person me-2 fs-5"></i>ผู้ใช้งาน
+            </a>
+        </li>
+        <li class="nav-item p-1 hover-bg mt-auto">
+            <a class="nav-link text-danger" href="/">
+                <i class="bi bi-box-arrow-right me-2 fs-5"></i>ออกจากระบบ
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const path = window.location.pathname;
+        const navLinks = document.querySelectorAll("nav .nav-link");
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+
+            // เช็กว่าพาทของลิงก์ตรงกับพาท URL เริ่มต้น
+            if (path === href || path.startsWith(href + "/")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
