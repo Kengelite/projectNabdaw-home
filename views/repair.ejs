@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <!-- Top Bar -->
         <%- include('header') %>
 
@@ -37,7 +37,7 @@
 
                 <%- include('menu') %>
                     <!-- Main Content -->
-                    <div class="col-12 col-md-9 col-lg-10 mt-4">
+                    <div class="col-12 col-md-9 col-lg-10 mt-4 px-3">
                         <div class="row">
                             <div class="col-12 col-md-6 col-xl-3 mb-3 mb-md-0">
                                 <div class="card border rounded-3 shadow-sm p-3">
@@ -118,48 +118,50 @@
                                     <button class="btn btn-success" data-bs-toggle="modal"
                                         data-bs-target="#addModal">เพิ่มข้อมูล</button>
                                 </div>
-                                <table id="myDataTable" class="table table-bordered  rounded">
-                                    <thead>
-                                        <tr>
-                                            <th>ลำดับ</th>
-                                            <th>ห้อง</th>
-                                            <th>เจ้าห้อง</th>
-                                            <th>เบอร์ติดต่อ</th>
-                                            <th>เรื่อง</th>
-                                            <th>รายละเอียด</th>
-                                            <th>สถานะ</th>
-                                            <th>ผู้จัดการ</th>
-                                            <th>จัดการ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>ห้อง 101</td>
-                                            <td>ชาติชาย คงดี</td>
-                                            <td>123456789</td>
-                                            <td>กรอกน้ำรั่ว</td>
-                                            <td>กรอกน้ำสายใบรั่ว</td>
-                                            <td><span class="bg-warning py-1 px-4 text-white rounded">กำลังดำเนินการ
-                                                </span></td>
-                                            <td>สมชาย</td>
-                                            <td>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-primary me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#selectModal">
-                                                    <i class="bi bi-eye"></i> ดู
-                                                </button>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-warning me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-pencil"></i> แก้ไข
-                                                </button>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-danger"
-                                                    onclick="confirmDelete('ห้อง 101 ')">
-                                                    <i class="bi bi-trash"></i> ลบ
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table id="myDataTable" class="table table-bordered  rounded">
+                                        <thead>
+                                            <tr>
+                                                <th>ลำดับ</th>
+                                                <th>ห้อง</th>
+                                                <th>เจ้าห้อง</th>
+                                                <th>เบอร์ติดต่อ</th>
+                                                <th>เรื่อง</th>
+                                                <th>รายละเอียด</th>
+                                                <th>สถานะ</th>
+                                                <th>ผู้จัดการ</th>
+                                                <th>จัดการ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>ห้อง 101</td>
+                                                <td>ชาติชาย คงดี</td>
+                                                <td>123456789</td>
+                                                <td>กรอกน้ำรั่ว</td>
+                                                <td>กรอกน้ำสายใบรั่ว</td>
+                                                <td><span class="bg-warning py-1 px-4 text-white rounded">กำลังดำเนินการ
+                                                    </span></td>
+                                                <td>สมชาย</td>
+                                                <td>
+                                                    <button class="btn btn-sm py-1 px-4  btn-outline-primary me-1"
+                                                        data-bs-toggle="modal" data-bs-target="#selectModal">
+                                                        <i class="bi bi-eye"></i> ดู
+                                                    </button>
+                                                    <button class="btn btn-sm py-1 px-4  btn-outline-warning me-1"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        <i class="bi bi-pencil"></i> แก้ไข
+                                                    </button>
+                                                    <button class="btn btn-sm py-1 px-4  btn-outline-danger"
+                                                        onclick="confirmDelete('ห้อง 101 ')">
+                                                        <i class="bi bi-trash"></i> ลบ
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -397,7 +399,7 @@
             $('#myDataTable').DataTable({
                 language: {
                     search: "ค้นหา:",
-                    lengthMenu: "_MENU_ รายการ",
+                    lengthMenu: "รายการ _MENU_",
                     info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
                     zeroRecords: "ไม่พบรายการที่ค้นหา",
                     emptyTable: "ไม่มีข้อมูลในตาราง",

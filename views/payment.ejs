@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="">
         <!-- Top Bar -->
         <%- include('header') %>
 
@@ -37,7 +37,7 @@
 
                 <%- include('menu') %>
                     <!-- Main Content -->
-                    <div class="col-12 col-md-9 col-lg-10 mt-4">
+                    <div class="col-12 col-md-9 col-lg-10 mt-4 px-3">
                         <div class="row">
                             <div class="col-12 col-md-6 col-xl-3 mb-3 mb-md-0">
                                 <div class="card border rounded-3 shadow-sm p-3">
@@ -45,12 +45,12 @@
                                         <!-- วงกลม icon -->
                                         <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
                                             style="width: 60px; height: 60px;">
-                                            <i class="bi bi-tools fs-4"></i>
+                                            <i class="bi bi-receipt fs-2 text-primary"></i>
                                             <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
                                         </div>
                                         <!-- ข้อความ -->
                                         <div>
-                                            <div class="text-secondary small">รายการซ่อมทั้งหมด</div>
+                                            <div class="text-secondary small">บิลทั้งหมด</div>
                                             <div class="fw-bold fs-5"> 20 </div>
                                         </div>
                                     </div>
@@ -62,13 +62,12 @@
                                         <!-- วงกลม icon -->
                                         <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
                                             style="width: 60px; height: 60px;">
-                                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
-
+                                            <i class="bi bi-check-circle-fill fs-2 text-success"></i>
                                             <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
                                         </div>
                                         <!-- ข้อความ -->
                                         <div>
-                                            <div class="text-secondary small">ซ่อมเสร็จ</div>
+                                            <div class="text-secondary small">ชำระแล้ว</div>
                                             <div class="fw-bold fs-5"> 20 </div>
                                         </div>
                                     </div>
@@ -80,13 +79,12 @@
                                         <!-- วงกลม icon -->
                                         <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
                                             style="width: 60px; height: 60px;">
-                                            <i class="bi bi-hourglass-split text-warning fs-4"></i>
-
+                                            <i class="bi bi-hourglass-split fs-2 text-warning"></i>
                                             <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
                                         </div>
                                         <!-- ข้อความ -->
                                         <div>
-                                            <div class="text-secondary small">กำลังดำเนินการ</div>
+                                            <div class="text-secondary small">ยังไม่ชำระ</div>
                                             <div class="fw-bold fs-5"> 20 </div>
                                         </div>
                                     </div>
@@ -98,13 +96,12 @@
                                         <!-- วงกลม icon -->
                                         <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
                                             style="width: 60px; height: 60px;">
-                                            <i class="bi bi-box-seam text-primary fs-4"></i>
-
+                                            <i class="bi bi-exclamation-triangle-fill fs-2 text-danger"></i>
                                             <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
                                         </div>
                                         <!-- ข้อความ -->
                                         <div>
-                                            <div class="text-secondary small">คงเหลือ</div>
+                                            <div class="text-secondary small">ค้างชำระ</div>
                                             <div class="fw-bold fs-5"> 20 </div>
                                         </div>
                                     </div>
@@ -114,47 +111,110 @@
 
                         <div class="row p-3">
                             <div class="card py-3">
-                                <div class="d-flex justify-content-end mb-3">
-                                    <button class="btn btn-success">เพิ่มข้อมูล</button>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h3>ค้างชำระ</h3>
+                                    <div>
+                                        <!-- <button class="btn btn-success" >ออกใบเสร็จสำหรับเดือนนี้</button> -->
+                                        <button class="btn btn-success">เพิ่มข้อมูล</button>
+                                    </div>
                                 </div>
-                                <table id="myDataTable" class="table table-bordered  rounded">
-                                    <thead>
-                                        <tr>
-                                            <th>ห้อง</th>
-                                            <th>เจ้าห้อง</th>
-                                            <th>เบอร์ติดต่อ</th>
-                                            <th>เรื่อง</th>
-                                            <th>รายละเอียด</th>
-                                            <th>สถานะ</th>
-                                            <th>จัดการ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>ห้อง 101</td>
-                                            <td>ชาติชาย คงดี</td>
-                                            <td>123456789</td>
-                                            <td>กรอกน้ำรั่ว</td>
-                                            <td>กรอกน้ำสายใบรั่ว</td>
-                                            <td><span class="bg-warning py-1 px-4 text-white rounded">กำลังดำเนินการ
-                                                </span></td>
-                                            <td>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-primary me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#selectModal">
-                                                    <i class="bi bi-eye"></i> ดู
-                                                </button>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-warning me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-pencil"></i> แก้ไข
-                                                </button>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-danger"
-                                                    onclick="confirmDelete('ห้อง 101 ')">
-                                                    <i class="bi bi-trash"></i> ลบ
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="d-flex justify-content-start mb-3 align-items-center">
+
+                                    <div class="d-flex gap-2">
+                                        <select class="form-select" style="width: auto;">
+                                            <option selected disabled>เลือกเดือน</option>
+                                            <option value="01">มกราคม</option>
+                                            <option value="02">กุมภาพันธ์</option>
+                                            <option value="03">มีนาคม</option>
+                                            <option value="04">เมษายน</option>
+                                            <option value="05">พฤษภาคม</option>
+                                            <option value="06">มิถุนายน</option>
+                                            <option value="07">กรกฎาคม</option>
+                                            <option value="08">สิงหาคม</option>
+                                            <option value="09">กันยายน</option>
+                                            <option value="10">ตุลาคม</option>
+                                            <option value="11">พฤศจิกายน</option>
+                                            <option value="12">ธันวาคม</option>
+                                        </select>
+
+                                        <select class="form-select" style="width: auto;">
+                                            <option selected disabled>เลือกปี</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table id="myDataTable" class="table table-bordered rounded">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>ห้อง</th>
+                                                <th>ชื่อ</th>
+                                                <th>สัญญา</th>
+                                                <th>เบอร์ติดต่อ</th>
+                                                <th>ค้างกี่เดือน</th>
+                                                <th>รวมเป็นเงิน</th>
+                                                <th>สถานะ</th>
+                                                <th>จัดการ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- ✅ ชำระเงินแล้ว -->
+                                            <tr>
+                                                <td>101</td>
+                                                <td>ชาติชาย คงดี</td>
+                                                <td>1 ปี</td>
+                                                <td>0812345678</td>
+                                                <td><span class="badge bg-danger"
+                                                        style="text-decoration: line-through;">2
+                                                        เดือน</span></td>
+                                                <td class="text-end"><del>8,000 บาท</del></td>
+                                                <td><span class="badge bg-success">ชำระเงินแล้ว</span></td>
+                                                <td>
+                                                    <a href="/payment/detail"
+                                                        class="btn btn-sm btn-outline-primary me-1">
+                                                        <i class="bi bi-file-earmark-text"></i> ดูบิล
+                                                    </a>
+                                                    <button class="btn btn-sm btn-outline-info me-1"
+                                                        onclick="sendReminder('ชาติชาย คงดี')">
+                                                        <i class="bi bi-bell"></i> แจ้งเตือน
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                        onclick="confirmDelete('ห้อง 101')">
+                                                        <i class="bi bi-trash"></i> ลบ
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <!-- ✅ ยังไม่ชำระ -->
+                                            <tr>
+                                                <td>102</td>
+                                                <td>สมหญิง ดีมาก</td>
+                                                <td>6 เดือน</td>
+                                                <td>0898765432</td>
+                                                <td><span class="badge bg-warning text-dark">1 เดือน</span></td>
+                                                <td class="text-end">4,000 บาท</td>
+                                                <td><span class="badge bg-danger">ยังไม่ชำระ</span></td>
+                                                <td>
+                                                    <a href="/bill/detail/102"
+                                                        class="btn btn-sm btn-outline-primary me-1">
+                                                        <i class="bi bi-file-earmark-text"></i> ดูบิล
+                                                    </a>
+                                                    <button class="btn btn-sm btn-outline-info me-1"
+                                                        onclick="sendReminder('สมหญิง ดีมาก')">
+                                                        <i class="bi bi-bell"></i> แจ้งเตือน
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                        onclick="confirmDelete('ห้อง 102')">
+                                                        <i class="bi bi-trash"></i> ลบ
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -341,10 +401,8 @@
             $('#myDataTable').DataTable({
                 language: {
                     search: "ค้นหา:",
-                    lengthMenu: "_MENU_ รายการ",
+                    lengthMenu: "รายการ _MENU_",
                     info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
-                    zeroRecords: "ไม่พบรายการที่ค้นหา",
-                    emptyTable: "ไม่มีข้อมูลในตาราง",
                     paginate: {
                         first: "หน้าแรก",
                         last: "หน้าสุดท้าย",
@@ -371,6 +429,33 @@
                 if (result.isConfirmed) {
                     // TODO: ดำเนินการลบ เช่น เรียก API หรือ submit ฟอร์ม
                     Swal.fire('ลบแล้ว!', 'ข้อมูลถูกลบเรียบร้อยแล้ว', 'success');
+                }
+            });
+        }
+    </script>
+    <script>
+        function sendReminder(name) {
+            Swal.fire({
+                icon: 'info',
+                title: 'แจ้งเตือนแล้ว',
+                text: `ได้ส่งแจ้งเตือนไปยัง ${name}`,
+                confirmButtonText: 'ตกลง'
+            });
+        }
+
+        function confirmDelete(room) {
+            Swal.fire({
+                title: 'คุณแน่ใจหรือไม่?',
+                text: `ต้องการลบข้อมูล ${room} หรือไม่?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่, ลบเลย!',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('ลบแล้ว!', `ข้อมูลของ ${room} ถูกลบเรียบร้อย`, 'success');
                 }
             });
         }

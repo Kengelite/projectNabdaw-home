@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <!-- Top Bar -->
         <%- include('../header') %>
 
@@ -37,7 +37,7 @@
 
                 <%- include('../menu') %>
                     <!-- Main Content -->
-                    <div class="col-12 col-md-9 col-lg-10 mt-4">
+                    <div class="col-12 col-md-9 col-lg-10 mt-4 px-3">
                         <div class="row">
                             <div class="col-12 col-md-6 col-xl-3 mb-3 mb-md-0">
                                 <div class="card border rounded-3 shadow-sm p-3">
@@ -114,8 +114,9 @@
                                 <div class="d-flex justify-content-between mb-3">
                                     <h3>ค้างชำระ</h3>
                                     <div>
-                                        <button class="btn btn-success">ออกใบเสร็จสำหรับเดือนนี้</button>
-                                        <button class="btn btn-success">เพิ่มข้อมูล</button>
+                                        <button class="btn btn-success"
+                                            onclick="confirmGenerateReceipt()">ออกใบเสร็จสำหรับเดือนนี้</button>
+                                        <!-- <button class="btn btn-success">เพิ่มข้อมูล</button> -->
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-start mb-3 align-items-center">
@@ -145,41 +146,99 @@
                                         </select>
                                     </div>
                                 </div>
-                                <table id="myDataTable" class="table table-bordered  rounded">
-                                    <thead>
-                                        <tr>
-                                            <th>ห้อง</th>
-                                            <th>ผู้จอง</th>
-                                            <th>เบอร์ติดต่อ</th>
-                                            <th>สถานะ</th>
-                                            <th>ค้างชำระ</th>
-                                            <th>จัดการ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>101</td>
-                                            <td>ชาติชาย คงดี</td>
-                                            <td>123456789</td>
-                                            <td><span class="bg-success py-1 px-4 text-white rounded"> ว่าง </span></td>
-                                            <td>1 เดือน</td>
-                                            <td>
-                                                <a class="btn btn-sm py-1 px-4  btn-outline-primary me-1"
-                                                    href="/bill/detail">
-                                                    <i class="bi bi-eye"></i> ดู
-                                                </a>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-warning me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-pencil"></i> แก้ไข
-                                                </button>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-danger"
-                                                    onclick="confirmDelete('ห้อง 101 ')">
-                                                    <i class="bi bi-trash"></i> ลบ
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table id="myDataTable" class="table table-bordered rounded">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>ห้อง</th>
+                                                <th>ชื่อ</th>
+                                                <th>เบอร์ติดต่อ</th>
+                                                <th>ค่าน้ำ</th>
+                                                <th>ค่าไฟ</th>
+                                                <th>ค่าห้อง</th>
+                                                <th>รวมเป็นเงิน</th>
+                                                <th>สถานะ</th>
+                                                <th>จัดการ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>101</td>
+                                                <td>ชาติชาย คงดี</td>
+                                                <td>0812345678</td>
+                                                <td class="text-end">200</td>
+                                                <td class="text-end">1,000</td>
+                                                <td class="text-end">4,000</td>
+                                                <td class="text-end fw-bold">5,200</td>
+                                                <td><span class="badge bg-success">ชำระเงินแล้ว</span></td>
+                                                <td>
+                                                    <a href="/bill/detail?room=101"
+                                                        class="btn btn-sm btn-outline-primary me-1">
+                                                        <i class="bi bi-file-earmark-text"></i> ดูบิล
+                                                    </a>
+                                                    <button class="btn btn-sm btn-outline-info me-1"
+                                                        onclick="sendReminder('ชาติชาย คงดี')">
+                                                        <i class="bi bi-bell"></i> แจ้งเตือน
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                        onclick="confirmDelete('ห้อง 101')">
+                                                        <i class="bi bi-trash"></i> ลบ
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>102</td>
+                                                <td>สมหญิง ดีมาก</td>
+                                                <td>0898765432</td>
+                                                <td class="text-end">150</td>
+                                                <td class="text-end">800</td>
+                                                <td class="text-end">4,000</td>
+                                                <td class="text-end fw-bold">4,950</td>
+                                                <td><span class="badge bg-warning text-dark">ล่าช้า 5 วัน</span></td>
+                                                <td>
+                                                    <a href="/bill/detail/102"
+                                                        class="btn btn-sm btn-outline-primary me-1">
+                                                        <i class="bi bi-file-earmark-text"></i> ดูบิล
+                                                    </a>
+                                                    <button class="btn btn-sm btn-outline-info me-1"
+                                                        onclick="sendReminder('สมหญิง ดีมาก')">
+                                                        <i class="bi bi-bell"></i> แจ้งเตือน
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                        onclick="confirmDelete('ห้อง 102')">
+                                                        <i class="bi bi-trash"></i> ลบ
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>103</td>
+                                                <td>ประสิทธิ์ ทองแท้</td>
+                                                <td>0877772222</td>
+                                                <td class="text-end">180</td>
+                                                <td class="text-end">1,100</td>
+                                                <td class="text-end">4,000</td>
+                                                <td class="text-end fw-bold">5,280</td>
+                                                <td><span class="badge bg-danger">ยังไม่ชำระเงิน</span></td>
+                                                <td>
+                                                    <a href="/bill/detail/103"
+                                                        class="btn btn-sm btn-outline-primary me-1">
+                                                        <i class="bi bi-file-earmark-text"></i> ดูบิล
+                                                    </a>
+                                                    <button class="btn btn-sm btn-outline-info me-1"
+                                                        onclick="sendReminder('ประสิทธิ์ ทองแท้')">
+                                                        <i class="bi bi-bell"></i> แจ้งเตือน
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                        onclick="confirmDelete('ห้อง 103')">
+                                                        <i class="bi bi-trash"></i> ลบ
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -366,7 +425,7 @@
             $('#myDataTable').DataTable({
                 language: {
                     search: "ค้นหา:",
-                    lengthMenu: "_MENU_ รายการ",
+                    lengthMenu: "รายการ _MENU_",
                     info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
                     paginate: {
                         first: "หน้าแรก",
@@ -394,6 +453,74 @@
                 if (result.isConfirmed) {
                     // TODO: ดำเนินการลบ เช่น เรียก API หรือ submit ฟอร์ม
                     Swal.fire('ลบแล้ว!', 'ข้อมูลถูกลบเรียบร้อยแล้ว', 'success');
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function sendReminder(name) {
+            Swal.fire({
+                icon: 'info',
+                title: 'แจ้งเตือนแล้ว',
+                text: `ได้ส่งแจ้งเตือนไปยัง ${name}`,
+                confirmButtonText: 'ตกลง'
+            });
+        }
+
+        function confirmDelete(room) {
+            Swal.fire({
+                title: 'คุณแน่ใจหรือไม่?',
+                text: `ต้องการลบข้อมูล ${room} หรือไม่?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่, ลบเลย!',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('ลบแล้ว!', `ข้อมูลของ ${room} ถูกลบเรียบร้อย`, 'success');
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function confirmGenerateReceipt() {
+            const now = new Date();
+            const month = now.toLocaleString('th-TH', { month: 'long' });
+            const year = now.getFullYear() + 543; // แปลงเป็น พ.ศ.
+
+            Swal.fire({
+                title: 'คุณแน่ใจหรือไม่?',
+                html: `คุณต้องการคำนวณเงินค่าห้องของเดือน <strong>${month} ปี ${year}</strong> ใช่หรือไม่?`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่, ดำเนินการ',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonColor: '#28a745',
+                cancelButtonColor: '#6c757d'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'กำลังประมวลผล...',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+
+                            // จำลองการทำงาน (โหลด 1.5 วินาที)
+                            setTimeout(() => {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'ออกใบเสร็จเรียบร้อย',
+                                    text: `ระบบได้คำนวณเงินค่าห้องเดือน ${month} ปี ${year} เรียบร้อยแล้ว`,
+                                    confirmButtonText: 'ตกลง'
+                                });
+                            }, 1500);
+                        }
+                    });
                 }
             });
         }

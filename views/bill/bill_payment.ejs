@@ -41,89 +41,91 @@
                         <div class="row p-3">
                             <div class="card py-3">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h3>ค้างชำระ</h3>
+                                    <h3>ค้างชำระ <%= bill.months.length %> เดือน</h3>
                                     <button class="btn btn-success">ดาวน์โหลด</button>
                                 </div>
 
-
-                                <div class="">
-                                    <div class="row mb-4">
-                                        <!-- ข้อมูลเจ้าของห้อง -->
-                                        <div class="col-md-6">
-                                            <h5 class="fw-bold mb-3">ข้อมูลเจ้าของห้อง</h5>
-                                            <p><strong>ชื่อ:</strong>
-                                                <%= bill.name %>
-                                            </p>
-                                            <p><strong>เบอร์ติดต่อ:</strong>
-                                                <%= bill.tel || 'ไม่ได้ระบุ' %>
-                                            </p>
-                                            <p><strong>ที่อยู่:</strong> ห้อง <%= bill.room %>
-                                            </p>
-                                        </div>
-
-                                        <!-- รายละเอียดใบแจ้งหนี้ -->
-                                        <div class="col-md-6 text-md-end">
-                                            <h5 class="fw-bold mb-3">รายละเอียดใบแจ้งหนี้</h5>
-                                            <p><strong>รหัสใบแจ้งหนี้:</strong> INV-2025-001</p>
-                                            <p><strong>สถานะ:</strong> <span
-                                                    class="badge bg-warning text-dark">ยังไม่ชำระ</span></p>
-                                            <p><strong>วันที่ออกบิล:</strong> 1 มิ.ย. 2568</p>
-                                            <p><strong>กำหนดชำระ:</strong> 5 มิ.ย. 2568</p>
-                                        </div>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <h5 class="fw-bold mb-3">ข้อมูลเจ้าของห้อง</h5>
+                                        <p><strong>ชื่อ:</strong>
+                                            <%= bill.name %>
+                                        </p>
+                                        <p><strong>เบอร์ติดต่อ:</strong>
+                                            <%= bill.tel || 'ไม่ได้ระบุ' %>
+                                        </p>
+                                        <p><strong>ที่อยู่:</strong> ห้อง <%= bill.room %>
+                                        </p>
                                     </div>
-
-                                    <!-- รายการค่าใช้จ่าย -->
-                                    <h5 class="fw-bold">รายการค่าใช้จ่าย</h5>
-                                    <table class="table table-bordered mt-3">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>รายการ</th>
-                                                <th>รายละเอียด</th>
-                                                <th class="text-end">จำนวนเงิน (บาท)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>ค่าห้อง</td>
-                                                <td>-</td>
-                                                <td class="text-end">4,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>ค่าไฟ</td>
-                                                <td>120 หน่วย × 7 บาท</td>
-                                                <td class="text-end">840</td>
-                                            </tr>
-                                            <tr>
-                                                <td>ค่าน้ำ</td>
-                                                <td>15 หน่วย × 20 บาท</td>
-                                                <td class="text-end">300</td>
-                                            </tr>
-                                            <tr class="table-secondary">
-                                                <td colspan="2" class="text-end fw-bold">รวมเป็นเงินทั้งสิ้น</td>
-                                                <td class="text-end fw-bold">5,140</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <div class="row mt-4">
-                                        <!-- ธนาคาร -->
-                                        <div class="col-md-6 text-center">
-                                            <h6 class="fw-bold">บัญชีสำหรับชำระเงิน</h6>
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/SCB_Thailand_Logo.svg"
-                                                width="80" alt="SCB">
-                                            <p class="mt-2 mb-0">ธนาคารไทยพาณิชย์</p>
-                                            <p class="mb-0">เลขบัญชี: <strong>123-456-7890</strong></p>
-                                            <p>ชื่อบัญชี: หอพักวิทยาลัย</p>
-                                        </div>
-
-                                        <!-- สลิปที่ลูกค้าชำระ -->
-                                        <div class="col-md-6 text-center">
-                                            <h6 class="fw-bold">สลิปการชำระเงิน</h6>
-                                            <img src="https://via.placeholder.com/250x150.png?text=อัปโหลด+สลิป"
-                                                class="img-fluid border rounded" alt="slip">
-                                        </div>
+                                    <div class="col-md-6 text-md-end">
+                                        <h5 class="fw-bold mb-3">รายละเอียดใบแจ้งหนี้</h5>
+                                        <p><strong>สถานะ:</strong> <span
+                                                class="badge bg-warning text-dark">ยังไม่ชำระ</span></p>
+                                        <p><strong>รหัสใบแจ้งหนี้:</strong> INV-2025-001</p>
+                                        <p><strong>กำหนดชำระ:</strong> 5 มิ.ย. 2568</p>
                                     </div>
                                 </div>
+
+                                <% bill.months.forEach((month, index)=> { %>
+                                    <div class="mb-4">
+                                        <h5 class="fw-bold">เดือน <%= month.name %>
+                                        </h5>
+                                        <table class="table table-bordered">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>รายการ</th>
+                                                    <th>รายละเอียด</th>
+                                                    <th class="text-end">จำนวนเงิน (บาท)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>ค่าห้อง</td>
+                                                    <td>-</td>
+                                                    <td class="text-end">
+                                                        <%= month.rent %>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ค่าไฟ</td>
+                                                    <td>-</td>
+                                                    <td class="text-end">
+                                                        <%= month.electricity %>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ค่าน้ำ</td>
+                                                    <td>-</td>
+                                                    <td class="text-end">
+                                                        <%= month.water %>
+                                                    </td>
+                                                </tr>
+                                                <tr class="table-secondary">
+                                                    <td colspan="2" class="text-end fw-bold">รวม</td>
+                                                    <td class="text-end fw-bold">
+                                                        <%= month.total %>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <% }) %>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-6 text-center">
+                                                <h6 class="fw-bold">บัญชีสำหรับชำระเงิน</h6>
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/SCB_Thailand_Logo.svg"
+                                                    width="80" alt="SCB">
+                                                <p class="mt-2 mb-0">ธนาคารไทยพาณิชย์</p>
+                                                <p class="mb-0">เลขบัญชี: <strong>123-456-7890</strong></p>
+                                                <p>ชื่อบัญชี: หอพักวิทยาลัย</p>
+                                            </div>
+                                            <div class="col-md-6 text-center">
+                                                <h6 class="fw-bold">สลิปการชำระเงิน</h6>
+                                                <img src="https://via.placeholder.com/250x150.png?text=อัปโหลด+สลิป"
+                                                    class="img-fluid border rounded" alt="slip">
+                                            </div>
+                                        </div>
                             </div>
                         </div>
 

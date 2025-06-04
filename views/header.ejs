@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-between align-items-center bg-success p-3 text-white">
     <div class="d-flex align-items-center">
-        <img src="owner.png" alt="avatar" width="40" height="40" class="rounded-circle me-2">
+        <img src="https://picsum.photos/seed/picsum/200/300" alt="avatar" width="40" height="40" class="rounded-circle ">
     </div>
     <div class="d-flex align-items-center">
-        <img src="owner.png" alt="avatar" width="40" height="40" class="rounded-circle me-2 d-none d-md-inline">
+        <img src="https://picsum.photos/seed/picsum/200/300" alt="avatar" width="40" height="40" class="rounded-circle d-none me-2 d-md-inline">
         <div class="me-3 d-none d-md-inline">เจ้าของหอพัก</div>
 
         <!-- Hamburger button (Mobile only) -->
@@ -23,29 +23,68 @@
     <div class="offcanvas-body p-0">
         <ul class="nav flex-column">
             <li class="nav-item p-1 hover-bg">
-                <a class="nav-link active" href="/index">แดชบอร์ด</a>
+                <a class="nav-link" href="/index">
+                    <i class="bi bi-speedometer2 me-2 fs-5"></i>แดชบอร์ด
+                </a>
             </li>
             <li class="nav-item p-1 hover-bg">
-                <a class="nav-link" href="/room">ห้องพัก</a>
+                <a class="nav-link" href="/room">
+                    <i class="bi bi-door-open-fill me-2 fs-5"></i>ห้องพัก
+                </a>
             </li>
             <li class="nav-item p-1 hover-bg">
-                <a class="nav-link" href="/repair">แจ้งซ่อม</a>
+                <a class="nav-link" href="/repair">
+                    <i class="bi bi-tools me-2 fs-5"></i>แจ้งซ่อม
+                </a>
             </li>
             <li class="nav-item p-1 hover-bg">
-                <a class="nav-link" href="/meter">จดมิเตอร์</a>
+                <a class="nav-link" href="/meter">
+                    <i class="bi bi-pencil-square me-2 fs-5"></i>จดมิเตอร์
+                </a>
             </li>
             <li class="nav-item p-1 hover-bg">
-                <a class="nav-link" href="/bill">ออกบิล</a>
+                <a class="nav-link" href="/bill">
+                    <i class="bi bi-receipt-cutoff me-2 fs-5"></i>ออกบิล
+                </a>
             </li>
             <li class="nav-item p-1 hover-bg">
-                <a class="nav-link" href="/payment">ค้างชำระ</a>
+                <a class="nav-link" href="/payment">
+                    <i class="bi bi-exclamation-circle-fill me-2 fs-5"></i>ค้างชำระ
+                </a>
             </li>
+
             <li class="nav-item p-1 hover-bg">
-                <a class="nav-link" href="/report">รายงาน</a>
+                <a class="nav-link" href="/user">
+                    <i class="bi bi-person me-2 fs-5"></i>ผู้ใช้งาน
+                </a>
+            </li>
+            <li class="nav-item p-1">
+                <a class="nav-link d-flex align-items-center rounded hover-bg" href="/setting">
+                    <i class="bi bi-gear me-2 fs-5"></i>
+                    ตั้งค่าข้อมูล
+                </a>
             </li>
             <li class="nav-item p-1 hover-bg mt-auto">
-                <a class="nav-link text-danger" href="/">ออกจากระบบ</a>
+                <a class="nav-link text-danger" href="/">
+                    <i class="bi bi-box-arrow-right me-2 fs-5"></i>ออกจากระบบ
+                </a>
             </li>
         </ul>
     </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const path = window.location.pathname;
+    const navLinks = document.querySelectorAll(".nav-link"); // ✅ เปลี่ยนตรงนี้
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      if (path === href || path.startsWith(href + "/")) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  });
+</script>

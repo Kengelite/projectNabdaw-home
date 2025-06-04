@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <!-- Top Bar -->
         <%- include('../header') %>
 
@@ -37,7 +37,7 @@
 
                 <%- include('../menu') %>
                     <!-- Main Content -->
-                    <div class="col-12 col-md-9 col-lg-10 mt-4">
+                    <div class="col-12 col-md-9 col-lg-10 mt-4 px-3">
                         <div class="row">
                             <div class="col-12 col-md-6 col-xl-3 mb-3 mb-md-0">
                                 <div class="card border rounded-3 shadow-sm p-3">
@@ -145,43 +145,45 @@
                                         </select>
                                     </div>
                                 </div>
-                                <table id="myDataTable" class="table table-bordered  rounded">
-                                    <thead>
-                                        <tr>
-                                            <th>ห้อง</th>
-                                            <th>วันที่จด</th>
-                                            <th>หน่วยน้ำ</th>
-                                            <th>หน่วยไฟ</th>
-                                            <th>ผู้จด</th>
-                                            <th>แก้ไขล่าสุด</th>
-                                            <th>จัดการ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>101</td>
-                                            <td>01-03-2025</td>
-                                            <td>10 หน่วย</td>
-                                            <td>200 หน่วย</td>
-                                            <td>เจ้าของหอพัก</td>
-                                            <td>01-03-2025</td>
-                                            <td>
-                                                <!-- <a class="btn btn-sm py-1 px-4  btn-outline-primary me-1"
+                                <div class="table-responsive">
+                                    <table id="myDataTable" class="table table-bordered  rounded">
+                                        <thead>
+                                            <tr>
+                                                <th>ห้อง</th>
+                                                <th>วันที่จด</th>
+                                                <th>หน่วยน้ำ</th>
+                                                <th>หน่วยไฟ</th>
+                                                <th>ผู้จด</th>
+                                                <th>แก้ไขล่าสุด</th>
+                                                <th>จัดการ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>101</td>
+                                                <td>01-03-2025</td>
+                                                <td>10 หน่วย</td>
+                                                <td>200 หน่วย</td>
+                                                <td>เจ้าของหอพัก</td>
+                                                <td>01-03-2025</td>
+                                                <td>
+                                                    <!-- <a class="btn btn-sm py-1 px-4  btn-outline-primary me-1"
                                                     href="/bill/detail">
                                                     <i class="bi bi-eye"></i> ดู
                                                 </a> -->
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-warning me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-pencil"></i> แก้ไข
-                                                </button>
-                                                <button class="btn btn-sm py-1 px-4  btn-outline-danger"
-                                                    onclick="confirmDelete('ห้อง 101 ')">
-                                                    <i class="bi bi-trash"></i> ลบ
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                    <button class="btn btn-sm py-1 px-4  btn-outline-warning me-1"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        <i class="bi bi-pencil"></i> แก้ไข
+                                                    </button>
+                                                    <button class="btn btn-sm py-1 px-4  btn-outline-danger"
+                                                        onclick="confirmDelete('ห้อง 101 ')">
+                                                        <i class="bi bi-trash"></i> ลบ
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -376,7 +378,7 @@
             $('#myDataTable').DataTable({
                 language: {
                     search: "ค้นหา:",
-                    lengthMenu: "_MENU_ รายการ",
+                    lengthMenu: "รายการ _MENU_",
                     info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
                     paginate: {
                         first: "หน้าแรก",

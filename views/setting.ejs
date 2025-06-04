@@ -38,180 +38,178 @@
                 <%- include('menu') %>
                     <div class="col-12 col-md-9 col-lg-10 mt-4 px-3">
                         <!-- Statistics Cards -->
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-xl-3 mb-3 mb-md-0">
-                                <div class="card border rounded-3 shadow-sm p-3">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <!-- วงกลม icon -->
-                                        <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="bi bi-door-open-fill text-primary fs-4"></i>
-                                            <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
-                                        </div>
-                                        <!-- ข้อความ -->
-                                        <div>
-                                            <div class="text-secondary small">ผู้ใช้งานทั้งหมด</div>
-                                            <div class="fw-bold fs-5"> 20 </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-xl-3 mb-3 md:mb-0">
-                                <div class="card border rounded-3 shadow-sm p-3">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <!-- วงกลม icon -->
-                                        <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="bi bi-person-check-fill text-success fs-4"></i>
-                                            <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
-                                        </div>
-                                        <!-- ข้อความ -->
-                                        <div>
-                                            <div class="text-secondary small">แม่บ้าน</div>
-                                            <div class="fw-bold fs-5"> 20 </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-xl-3 mb-3 md:mb-0">
-                                <div class="card border rounded-3 shadow-sm p-3">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <!-- วงกลม icon -->
-                                        <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="bi bi-check2-square text-info fs-4"></i>
-                                            <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
-                                        </div>
-                                        <!-- ข้อความ -->
-                                        <div>
-                                            <div class="text-secondary small">ช่าง</div>
-                                            <div class="fw-bold fs-5"> 20 </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-xl-3 mb-3 md:mb-0">
-                                <div class="card border rounded-3 shadow-sm p-3">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <!-- วงกลม icon -->
-                                        <div class="bg-light rounded-circle d-flex justify-content-center align-items-center"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="bi bi-exclamation-triangle-fill text-warning fs-4"></i>
-                                            <!-- หรือใช้ <i class="bi bi-bar-chart fs-4 text-primary"></i> -->
-                                        </div>
-                                        <!-- ข้อความ -->
-                                        <div>
-                                            <div class="text-secondary small">ทั่วไป</div>
-                                            <div class="fw-bold fs-5"> 20 </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <!-- Users Table -->
-                        <div class="card ">
-                            <div class="card-header bg-white border-0 pt-4">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="mb-0"><i class="bi bi-table me-2"></i>รายการผู้ใช้งาน</h4>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-                                        <i class="bi bi-person-plus me-2"></i>เพิ่มผู้ใช้ใหม่
-                                    </button>
+                        <div class="">
+                            <h4>ตั้งค่าข้อมูล</h4>
+                            <div class="">
+                                <!-- ข้อมูลหอพัก -->
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">ข้อมูลหอพัก</h5>
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                                            data-bs-target="#editDormModal">แก้ไข</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-3 align-items-center">
+                                            <div class="col-md-2 text-center">
+                                                <img src="https://picsum.photos/200/300?grayscale"
+                                                    class="img-fluid rounded"
+                                                    style="max-height: 150px; object-fit: contain;" alt="โลโก้หอพัก">
+                                            </div>
+                                            <div class="col-md-10">
+                                                <p><strong>ชื่อหอพัก:</strong> หอพักวิทยาลัย</p>
+                                                <p><strong>ที่อยู่:</strong> 123 ถนนสุขใจ แขวงบางรัก เขตบางรัก กรุงเทพฯ
+                                                    10500</p>
+                                                <p><strong>เบอร์ติดต่อ:</strong> 02-123-4567</p>
+                                                <p><strong>เลขประจำตัวผู้เสียภาษี:</strong> 0123456789012</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ตั้งค่าการออกบิล -->
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">ตั้งค่าการออกบิล</h5>
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                                            data-bs-target="#editBillModal">แก้ไข</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>วันที่ออกบิลประจำเดือน:</strong> วันที่ 1</p>
+                                        <p><strong>กำหนดชำระ:</strong> ภายใน 5 วันหลังจากออกบิล</p>
+                                        <p><strong>ค่าปรับล่าช้า:</strong> 20 บาท/วัน</p>
+                                    </div>
+                                </div>
+
+                                <!-- อัตราค่าน้ำ-ค่าไฟ -->
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">อัตราค่าน้ำ - ค่าไฟ</h5>
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                                            data-bs-target="#editRateModal">แก้ไข</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>ค่าน้ำ:</strong> 20 บาท/หน่วย</p>
+                                        <p><strong>ค่าไฟ:</strong> 7 บาท/หน่วย</p>
+                                    </div>
+                                </div>
+
+                                <!-- บัญชีธนาคาร -->
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">บัญชีสำหรับชำระเงิน</h5>
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                                            data-bs-target="#editBankModal">
+                                            แก้ไข
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>ธนาคาร:</strong> ไทยพาณิชย์</p>
+                                        <p><strong>เลขที่บัญชี:</strong> 123-456-7890</p>
+                                        <p><strong>ชื่อบัญชี:</strong> หอพักวิทยาลัย</p>
+
+                                        <!-- แสดงรูปบัญชี/QR Code -->
+                                        <div class="text-center mt-3">
+                                            <img src="https://www.octopus.co.th/cdn/shop/files/14771108_website_14.png?v=1746499536"
+                                                alt="บัญชีสำหรับชำระเงิน" class="img-fluid border rounded"
+                                                style="max-height: 200px;">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="myDataTable" class="table table-bordered  rounded">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>ชื่อ</th>
-                                                <th>นามสกุล</th>
-                                                <th>อีเมล</th>
-                                                <th>บทบาท</th>
-                                                <th>วันที่สร้าง</th>
-                                                <th>สถานะ</th>
-                                                <th>จัดการ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>001</td>
-                                                <td>สมชาย</td>
-                                                <td>ใจดี</td>
-                                                <td>somchai@example.com</td>
-                                                <td><span class="badge bg-danger role-badge">Admin</span></td>
-                                                <td>2024-01-15</td>
-                                                <td><span class="badge bg-success">ใช้งานได้</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-primary me-1"
-                                                        data-bs-toggle="modal" data-bs-target="#viewModal"
-                                                        onclick="viewUser('001', 'สมชาย', 'ใจดี', 'somchai@example.com', 'Admin')">
-                                                        <i class="bi bi-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-warning me-1"
-                                                        data-bs-toggle="modal" data-bs-target="#editModal"
-                                                        onclick="editUser('001', 'สมชาย', 'ใจดี', 'somchai@example.com', 'Admin')">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-danger"
-                                                        onclick="confirmDelete('สมชาย ใจดี')">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>002</td>
-                                                <td>สมหญิง</td>
-                                                <td>รักดี</td>
-                                                <td>somying@example.com</td>
-                                                <td><span class="badge bg-info role-badge">User</span></td>
-                                                <td>2024-02-20</td>
-                                                <td><span class="badge bg-success">ใช้งานได้</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-primary me-1"
-                                                        data-bs-toggle="modal" data-bs-target="#viewModal"
-                                                        onclick="viewUser('002', 'สมหญิง', 'รักดี', 'somying@example.com', 'User')">
-                                                        <i class="bi bi-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-warning me-1"
-                                                        data-bs-toggle="modal" data-bs-target="#editModal"
-                                                        onclick="editUser('002', 'สมหญิง', 'รักดี', 'somying@example.com', 'User')">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-danger"
-                                                        onclick="confirmDelete('สมหญิง รักดี')">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>003</td>
-                                                <td>ชาติชาย</td>
-                                                <td>คงดี</td>
-                                                <td>chatichai@example.com</td>
-                                                <td><span class="badge bg-warning role-badge text-dark">Guest</span>
-                                                </td>
-                                                <td>2024-03-10</td>
-                                                <td><span class="badge bg-secondary">ระงับการใช้งาน</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-primary me-1"
-                                                        data-bs-toggle="modal" data-bs-target="#viewModal"
-                                                        onclick="viewUser('003', 'ชาติชาย', 'คงดี', 'chatichai@example.com', 'Guest')">
-                                                        <i class="bi bi-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-warning me-1"
-                                                        data-bs-toggle="modal" data-bs-target="#editModal"
-                                                        onclick="editUser('003', 'ชาติชาย', 'คงดี', 'chatichai@example.com', 'Guest')">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-danger"
-                                                        onclick="confirmDelete('ชาติชาย คงดี')">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+
+                            <!-- Modal แก้ไขข้อมูลหอพัก -->
+                            <div class="modal fade" id="editDormModal" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">แก้ไขข้อมูลหอพัก</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="text" class="form-control mb-2" placeholder="ชื่อหอพัก">
+                                            <textarea class="form-control mb-2" placeholder="ที่อยู่"></textarea>
+                                            <input type="text" class="form-control mb-2" placeholder="เบอร์ติดต่อ">
+                                            <input type="text" class="form-control" placeholder="เลขผู้เสียภาษี">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                                            <button class="btn btn-primary">บันทึก</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal ตั้งค่าบิล -->
+                            <div class="modal fade" id="editBillModal" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">แก้ไขการตั้งค่าบิล</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="number" class="form-control mb-2"
+                                                placeholder="วันที่ออกบิล (1-31)">
+                                            <input type="number" class="form-control mb-2"
+                                                placeholder="จำนวนวันในการชำระ">
+                                            <input type="number" class="form-control"
+                                                placeholder="ค่าปรับล่าช้า (บาท/วัน)">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                                            <button class="btn btn-primary">บันทึก</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal แก้ไขอัตราค่าน้ำ-ไฟ -->
+                            <div class="modal fade" id="editRateModal" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">แก้ไขอัตราค่าน้ำ - ค่าไฟ</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="number" class="form-control mb-2"
+                                                placeholder="ค่าน้ำ (บาท/หน่วย)">
+                                            <input type="number" class="form-control" placeholder="ค่าไฟ (บาท/หน่วย)">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                                            <button class="btn btn-primary">บันทึก</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal แก้ไขบัญชีธนาคาร -->
+                            <div class="modal fade" id="editBankModal" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">แก้ไขข้อมูลบัญชีธนาคาร</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="text" class="form-control mb-2" placeholder="ชื่อธนาคาร">
+                                            <input type="text" class="form-control mb-2" placeholder="เลขที่บัญชี">
+                                            <input type="text" class="form-control mb-3" placeholder="ชื่อบัญชี">
+
+                                            <label class="form-label fw-bold">รูปภาพบัญชี/QR Code</label>
+                                            <input type="file" class="form-control mb-2" id="bankImageInput"
+                                                accept="image/*">
+                                            <div class="text-center mt-3">
+                                                <img id="bankImagePreview"
+                                                    src="https://www.octopus.co.th/cdn/shop/files/14771108_website_14.png?v=1746499536"
+                                                    alt="Preview" class="img-fluid mt-2 border rounded"
+                                                    style="max-height: 200px;">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                                            <button class="btn btn-primary">บันทึก</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
